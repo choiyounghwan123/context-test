@@ -1,14 +1,16 @@
 import "./App.css";
-import GrandParent from "./components/GrandParent";
-import SetName from "./components/SetName";
-import { MyContextProvider } from "./context";
+import ColorBox from "./components/ColorBox";
+import SelectColor from "./components/SelectColor";
+import { ColorProvider } from "./context/color";
 
 function App() {
   return (
-    <MyContextProvider>
-      <SetName></SetName>
-      <GrandParent />
-    </MyContextProvider>
+    <ColorProvider>
+      <div>
+        <SelectColor></SelectColor>
+        <ColorBox></ColorBox>
+      </div>
+    </ColorProvider>
   );
 }
 
