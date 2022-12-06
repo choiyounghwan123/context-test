@@ -1,11 +1,15 @@
-import React, { useContext } from "react";
 import MyContext from "../context";
 
 const Parent = () => {
-  const { name } = useContext(MyContext);
   return (
     <div>
-      <p>parent received : {name}</p>
+      <MyContext.Consumer>
+        {(value) => (
+          <div>
+            <p>이름은 {value.state.name}</p>
+          </div>
+        )}
+      </MyContext.Consumer>
     </div>
   );
 };

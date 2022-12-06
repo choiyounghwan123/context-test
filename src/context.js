@@ -1,15 +1,26 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 const MyContext = createContext({
-  name: "",
+  state: {
+    name: "",
+    age: "",
+  },
+  actions: {
+    setName: () => {},
+    setAge: () => {},
+  },
 });
 
 const MyContextProvider = ({ children }) => {
-  return (
-    <MyContext.Provider value={{ name: "younghwan" }}>
-      {children}
-    </MyContext.Provider>
-  );
+  const [name, setName] = useState("");
+  const [age, setAge] = useState();
+
+  const value = {
+    state: { name, age },
+    actions: { setName, setAge },
+  };
+
+  return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
 };
 
 export { MyContextProvider };

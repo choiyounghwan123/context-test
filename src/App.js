@@ -1,10 +1,12 @@
 import "./App.css";
 import GrandParent from "./components/GrandParent";
-import MyContext, { MyContextProvider } from "./context";
+import SetName from "./components/SetName";
+import { MyContextProvider } from "./context";
 
 function App() {
   return (
     <MyContextProvider>
+      <SetName></SetName>
       <GrandParent />
     </MyContextProvider>
   );
